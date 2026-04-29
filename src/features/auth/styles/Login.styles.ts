@@ -1,0 +1,102 @@
+import { makeStyles, tokens } from "@fluentui/react-components";
+
+export const useLoginStyles = makeStyles({
+    cardContainer: {
+        display: "flex",
+        width: "100%",
+        maxWidth: "900px",
+        height: "500px",
+        borderRadius: "12px",
+        overflow: "hidden",
+        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.15)",
+        backgroundColor: tokens.colorNeutralBackground1,
+        "@media (max-width: 768px)": {
+            flexDirection: "column",
+            maxWidth: "400px",
+            height: "auto",
+            margin: "1rem",
+        },
+    },
+    leftPanel: {
+        flex: "1",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        padding: "2rem",
+        backgroundColor: tokens.colorNeutralBackground1,
+    },
+    rightPanel: {
+        flex: "1",
+        background: `linear-gradient(rgba(29, 53, 87, 0.8), rgba(230, 57, 70, 0.8)), url('https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        color: "white",
+        textAlign: "center",
+        padding: "2rem",
+        "@media (max-width: 768px)": {
+            display: "none",
+        },
+    },
+    welcomeText: {
+        marginBottom: "2rem",
+        "& h1": {
+            fontSize: "clamp(1.4rem, 3.5vw, 1.8rem)",
+            fontWeight: 600,
+            color: "#1d3557",
+            margin: "0 0 0.5rem 0",
+            overflowWrap: "normal", 
+            wordBreak: "normal",
+            lineHeight: "1.4", 
+        },
+        "& p": {
+            color: tokens.colorNeutralForeground3,
+            fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)",
+            lineHeight: "1.5",
+            margin: "0",
+        },
+    },
+    infinityText: {
+        marginBottom: "2rem",
+        "& h2": {
+            fontSize: "clamp(2.5rem, 6vw, 3.5rem)",
+            fontWeight: 700,
+            letterSpacing: "2px",
+            margin: "0 0 1rem 0",
+        },
+        "& p": {
+            maxWidth: "400px",
+            lineHeight: "1.6",
+            fontSize: "clamp(0.9rem, 1.2vw, 1rem)",
+            margin: "0",
+        },
+    },
+    form: {
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        gap: "24px",
+    },
+    footerLink: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexWrap: "wrap", 
+        textAlign: "center", 
+        gap: "4px",
+        fontSize: "0.9rem",
+        color: tokens.colorNeutralForeground3,
+    },
+    customSignInBtn: {
+        width: "100%",
+        backgroundColor: "#e63946",
+        color: "white",
+        borderRadius: "4px",
+        "&:hover": {
+            backgroundColor: "#d62828",
+        },
+    },
+});

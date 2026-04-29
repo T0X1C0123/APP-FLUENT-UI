@@ -1,7 +1,7 @@
-function App () {
-    return (
-        <h1>Hello Friend</h1>
-    )
-}
+import { AppRouter } from "./app/AppRouter";
 
-export default App
+function App () {
+     return <AppRouter />;
+};
+
+export default App;
