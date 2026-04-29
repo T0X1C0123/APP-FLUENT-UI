@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { SplashProvider, useSplash } from "./ SplashContext";
 import { router } from "./Router";
-import { SplashScreen } from "@/shared/components/SplashScreen";
+import { SplashScreen } from "@/shared/components/SplashScreen/SplashScreen";
 import { RouterProvider } from "react-router";
 
 // Oyente invisible que apaga el splash cuando la ruta termina de cargar

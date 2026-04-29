@@ -1,5 +1,7 @@
 import { AuthLayout } from "@/components/Layouts/AuthLayout";
-import { ProtectedRoute } from "@/shared/components/ProtectedRoute";
+import { DashboardLayout } from "@/components/Layouts/DashboardLayout";
+import { SidebarProvider } from "@/features/dashboard/contexts/SidebarContext";
+import { ProtectedRoute } from "@/shared/components/ProtectedRoute/ProtectedRoute";
 import { createBrowserRouter } from "react-router";
 
 export const router = createBrowserRouter([
@@ -21,11 +23,16 @@ export const router = createBrowserRouter([
         element: <ProtectedRoute />,
         children: [
             {
-                index: true,
-                lazy: async () => {
-                    const { default: Dashboard } = await import('@/features/dashboard/pages/Dashboard');
-                    return { Component: Dashboard };
-                },
+                element: <SidebarProvider><DashboardLayout /></SidebarProvider>,
+                children: [
+                    {
+                        index: true,
+                        lazy: async () => {
+                            const { default: Dashboard } = await import('@/features/dashboard/pages/Dashboard');
+                            return { Component: Dashboard };
+                        },
+                    },
+                ],
             },
         ],
     },

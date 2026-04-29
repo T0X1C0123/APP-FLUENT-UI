@@ -1,5 +1,5 @@
 import { useSplash } from "@/app/ SplashContext";
-import { useSplashStyles } from "../styles/Splash.styles";
+import { useSplashStyles } from "../SplashScreen/Splash.styles";
 
 export const SplashScreen = () => {
     const styles = useSplashStyles();
