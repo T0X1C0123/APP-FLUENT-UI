@@ -2,6 +2,7 @@ import { makeStyles } from "@fluentui/react-components";
 
 export const useHeaderStyles = makeStyles({
     header: {
+        width: "100%",
         backgroundColor: "white",
         padding: "1rem 2rem",
         boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
@@ -29,6 +30,7 @@ export const useHeaderStyles = makeStyles({
         fontSize: "1.5rem",
         fontWeight: 600,
         color: "#1d3557",
+        margin: 0,
     },
     rightSection: {
         display: "flex",

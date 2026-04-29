@@ -3,7 +3,7 @@ import { useLoginStyles } from "../styles/Login.styles";
 import { useLogin } from "../hooks/useLogin";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-import { useSplash } from "@/app/ SplashContext";
+import { useSplash } from "@/app/SplashContext";
 
 export const LoginForm = () => {
     const styles = useLoginStyles();

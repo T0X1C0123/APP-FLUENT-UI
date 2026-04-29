@@ -1,7 +1,7 @@
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useSidebarContext } from "../../contexts/SidebarContext";
 import { useSidebarStyles } from "./DashboardSidebar.styles";
-import { useSplash } from "@/app/ SplashContext";
+import { useSplash } from "@/app/SplashContext";
 import { useNavigate } from "react-router";
 
 export const DashboardSidebar = () => {

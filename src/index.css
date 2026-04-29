@@ -1,0 +1,21 @@
+/* 1. BOX SIZING: Evita que los paddings rompan los anchos */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. RESET GLOBAL: Elimina márgenes y paddings indeseados del navegador */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* 3. TIPOGRAFÍA BASE: Aplica la fuente de Windows/Fluent UI a toda la app */
+body {
+    font-family: "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

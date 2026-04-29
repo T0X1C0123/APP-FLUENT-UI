@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SplashProvider, useSplash } from "./ SplashContext";
+import { SplashProvider, useSplash } from "./SplashContext";
 import { router } from "./Router";
 import { SplashScreen } from "@/shared/components/SplashScreen/SplashScreen";
 import { RouterProvider } from "react-router";

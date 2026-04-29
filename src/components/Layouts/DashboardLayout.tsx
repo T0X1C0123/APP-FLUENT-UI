@@ -9,14 +9,15 @@ const useStyles = makeStyles({
     container: {
         display: "flex",
         height: "100vh",
+        width: "100%",
         position: "relative",
         zIndex: 1,
     },
     mainContent: {
         flex: 1,
+        width: "100%",
         display: "flex",
         flexDirection: "column",
-        overflow: "hidden",
         backgroundColor: "rgba(255, 255, 255, 0.9)",
         backdropFilter: "blur(10px)",
         // Se ajusta dependiendo del tamaño del sidebar (Contexto)
@@ -49,7 +50,7 @@ export const DashboardLayout = () => {
                     <Outlet />
                 </div>
             </div>
-             {/* FAB extraído */}
+            {/* FAB extraído */}
             <FabButton />
        </div>
     );
