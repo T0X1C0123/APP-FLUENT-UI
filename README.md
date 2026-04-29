@@ -6,8 +6,10 @@ Una aplicación React moderna construida con Vite, TypeScript y componentes Flue
 
 - **Sistema de Autenticación**: Página de inicio de sesión con validación de formulario y marca
 - **Pantalla de Bienvenida**: Pantalla de carga animada durante la inicialización de la aplicación
+- **Dashboard Interactivo**: Panel de control con sidebar, header y botones flotantes
 - **Diseño Responsivo**: Construido con Fluent UI para una experiencia consistente en múltiples plataformas
 - **Enrutamiento**: Enrutamiento del lado del cliente con React Router v7
+- **Backend Integrado**: Uso de PocketBase para gestión de datos y autenticación
 - **TypeScript**: Seguridad de tipos completa en toda la aplicación
 - **ESLint**: Configurado para calidad de código y consistencia
 - **Vite**: Servidor de desarrollo rápido y builds optimizados
@@ -18,6 +20,7 @@ Una aplicación React moderna construida con Vite, TypeScript y componentes Flue
 - **React 19**: Librería UI para construir interfaces de usuario
 - **React Router 7**: Enrutamiento declarativo para React
 - **Fluent UI React Components**: Componentes del sistema de diseño de Microsoft
+- **PocketBase**: Backend as a Service para autenticación y base de datos
 - **TypeScript**: JavaScript tipado para mejor experiencia de desarrollo
 
 ### Herramientas de Desarrollo
@@ -37,6 +40,10 @@ Una aplicación React moderna construida con Vite, TypeScript y componentes Flue
    ```bash
    npm install
    ```
+
+3. Configura PocketBase (si es necesario):
+   - Asegúrate de tener PocketBase corriendo localmente o en un servidor.
+   - Actualiza la configuración en `src/shared/api/pocketbase.ts` si es necesario.
 
 ## Uso
 
@@ -74,27 +81,49 @@ src/
 │   └── SplashContext.tsx      # Contexto para el estado de la pantalla de bienvenida
 ├── components/
 │   └── Layouts/
-│       └── AuthLayout.tsx     # Layout para páginas de autenticación
+│       ├── AuthLayout.tsx     # Layout para páginas de autenticación
+│       └── DashboardLayout.tsx # Layout para el dashboard
 ├── features/
 │   ├── auth/
 │   │   ├── components/
 │   │   │   ├── LoginBranding.tsx  # Componente de marca para login
 │   │   │   └── LoginForm.tsx      # Componente de formulario de login
+│   │   ├── hooks/
+│   │   │   └── useLogin.ts        # Hook para lógica de login
 │   │   ├── pages/
 │   │   │   └── Login.tsx          # Página de login
 │   │   └── styles/
 │   │       └── Login.styles.ts    # Estilos para componentes de auth
 │   └── dashboard/
-│       ├── components/            # Componentes del dashboard (por implementar)
-│       └── pages/                 # Páginas del dashboard (por implementar)
+│       ├── components/
+│       │   ├── FabButton/
+│       │   │   ├── FabButton.styles.ts
+│       │   │   └── FabButton.tsx    # Botón flotante
+│       │   ├── Header/
+│       │   │   ├── DashboardHeader.styles.ts
+│       │   │   └── DashboardHeader.tsx  # Header del dashboard
+│       │   └── Sidebar/
+│       │       ├── DashboardSidebar.styles.ts
+│       │       └── DashboardSidebar.tsx  # Sidebar del dashboard
+│       ├── contexts/
+│       │   └── SidebarContext.tsx   # Contexto para el estado del sidebar
+│       └── pages/
+│           └── Dashboard.tsx        # Página principal del dashboard
 ├── shared/
+│   ├── api/
+│   │   └── pocketbase.ts           # Configuración de PocketBase
 │   ├── components/
-│   │   └── SplashScreen.tsx       # Componente de pantalla de bienvenida
-│   └── styles/
-│       └── Splash.styles.ts       # Estilos de pantalla de bienvenida
-├── assets/                        # Activos estáticos
-├── App.tsx                        # Componente raíz de la aplicación
-└── main.tsx                       # Punto de entrada de la aplicación
+│   │   ├── ProtectedRoute/
+│   │   │   └── ProtectedRoute.tsx  # Ruta protegida
+│   │   └── SplashScreen/
+│   │       ├── Splash.styles.ts
+│   │       └── SplashScreen.tsx    # Componente de pantalla de bienvenida
+│   ├── hooks/
+│   │   └── useAuth.ts              # Hook para autenticación
+│   └── styles/                     # Estilos compartidos (si los hay)
+├── assets/                         # Activos estáticos
+├── App.tsx                         # Componente raíz de la aplicación
+└── main.tsx                        # Punto de entrada de la aplicación
 ```
 
 ## Arquitectura
