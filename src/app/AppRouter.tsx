@@ -11,8 +11,11 @@ const RouteListener = () => {
     useEffect(() => {
         const unsubscribe = router.subscribe(() => {
             setTimeout(hideSplash, 300); // 300ms para la animación de salida
-            unsubscribe();
         });
+
+        return () => {
+            unsubscribe();
+        };
     }, [hideSplash]);
 
     return null;
