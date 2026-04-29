@@ -1,73 +1,121 @@
-# React + TypeScript + Vite
+# APP-FLUENT-UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación React moderna construida con Vite, TypeScript y componentes Fluent UI. Este proyecto proporciona una base para aplicaciones web con características de autenticación, funcionalidad de dashboard y una interfaz de usuario responsiva.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Sistema de Autenticación**: Página de inicio de sesión con validación de formulario y marca
+- **Pantalla de Bienvenida**: Pantalla de carga animada durante la inicialización de la aplicación
+- **Diseño Responsivo**: Construido con Fluent UI para una experiencia consistente en múltiples plataformas
+- **Enrutamiento**: Enrutamiento del lado del cliente con React Router v7
+- **TypeScript**: Seguridad de tipos completa en toda la aplicación
+- **ESLint**: Configurado para calidad de código y consistencia
+- **Vite**: Servidor de desarrollo rápido y builds optimizados
 
-## React Compiler
+## Tecnologías Utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Dependencias Principales
+- **React 19**: Librería UI para construir interfaces de usuario
+- **React Router 7**: Enrutamiento declarativo para React
+- **Fluent UI React Components**: Componentes del sistema de diseño de Microsoft
+- **TypeScript**: JavaScript tipado para mejor experiencia de desarrollo
 
-## Expanding the ESLint configuration
+### Herramientas de Desarrollo
+- **Vite**: Herramienta de build y servidor de desarrollo
+- **ESLint**: Linting y formateo de código
+- **Compilador TypeScript**: Verificación de tipos y compilación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Instalación
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Clona el repositorio:
+   ```bash
+   git clone <repository-url>
+   cd app-fluent-ui
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Uso
+
+### Desarrollo
+Inicia el servidor de desarrollo con recarga en caliente:
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Build
+Construye la aplicación para producción:
+```bash
+npm run build
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Vista Previa
+Vista previa del build de producción localmente:
+```bash
+npm run preview
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Linting
+Ejecuta ESLint para verificar la calidad del código:
+```bash
+npm run lint
+```
+
+## Estructura del Proyecto
+
+```
+src/
+├── app/
+│   ├── AppRouter.tsx          # Componente principal del router con pantalla de bienvenida
+│   ├── Router.tsx             # Definiciones de rutas
+│   └── SplashContext.tsx      # Contexto para el estado de la pantalla de bienvenida
+├── components/
+│   └── Layouts/
+│       └── AuthLayout.tsx     # Layout para páginas de autenticación
+├── features/
+│   ├── auth/
+│   │   ├── components/
+│   │   │   ├── LoginBranding.tsx  # Componente de marca para login
+│   │   │   └── LoginForm.tsx      # Componente de formulario de login
+│   │   ├── pages/
+│   │   │   └── Login.tsx          # Página de login
+│   │   └── styles/
+│   │       └── Login.styles.ts    # Estilos para componentes de auth
+│   └── dashboard/
+│       ├── components/            # Componentes del dashboard (por implementar)
+│       └── pages/                 # Páginas del dashboard (por implementar)
+├── shared/
+│   ├── components/
+│   │   └── SplashScreen.tsx       # Componente de pantalla de bienvenida
+│   └── styles/
+│       └── Splash.styles.ts       # Estilos de pantalla de bienvenida
+├── assets/                        # Activos estáticos
+├── App.tsx                        # Componente raíz de la aplicación
+└── main.tsx                       # Punto de entrada de la aplicación
+```
+
+## Arquitectura
+
+La aplicación sigue una arquitectura basada en características:
+
+- **Características**: Organizadas por dominio (auth, dashboard)
+- **Compartido**: Componentes y utilidades comunes
+- **Componentes**: Componentes UI reutilizables
+- **Estilos**: Estilos específicos de componentes usando CSS-in-JS
+
+## Contribución
+
+1. Haz un fork del repositorio
+2. Crea una rama de característica: `git checkout -b feature/tu-caracteristica`
+3. Haz tus cambios y ejecuta pruebas
+4. Confirma tus cambios: `git commit -am 'Agrega alguna característica'`
+5. Sube a la rama: `git push origin feature/tu-caracteristica`
+6. Envía una pull request
+
+## Licencia
+
+Este proyecto es privado y no está licenciado para uso público.
 ```
