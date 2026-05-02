@@ -20,7 +20,7 @@ export const useSidebarStyles = makeStyles({
         },
     },
     mobileActive: {
-        left: "0px !important", // Forzado para móvil cuando se abre
+        left: "0px !important",
         boxShadow: "2px 0 10px rgba(0, 0, 0, 0.1)",
     },
     header: {
@@ -45,10 +45,102 @@ export const useSidebarStyles = makeStyles({
         fontSize: "1.25rem",
         fontWeight: 600,
     },
+    menu: {
+        flex: 1,
+        padding: "1.5rem 0",
+        overflowY: "auto",
+        scrollbarWidth: "thin",
+        scrollbarColor: "transparent transparent",
+        "&:hover": {
+            scrollbarColor: "rgba(255, 255, 255, 0.2) transparent",
+        },
+        "&::-webkit-scrollbar": { width: "6px" },
+        "&::-webkit-scrollbar-track": { background: "transparent" },
+        "&::-webkit-scrollbar-thumb": { backgroundColor: "transparent", borderRadius: "3px" },
+        "&:hover::-webkit-scrollbar-thumb": { backgroundColor: "rgba(255, 255, 255, 0.2)" },
+    },
+    menuItem: {
+        display: "flex",
+        alignItems: "center",
+        padding: "0.75rem 1.5rem",
+        color: "#f1faee",
+        textDecoration: "none",
+        transition: "all 0.3s ease",
+        cursor: "pointer",
+        borderLeft: "4px solid transparent",
+        "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+        "&.active": {
+            backgroundColor: "rgba(230, 57, 70, 0.3)",
+            borderLeft: "4px solid #e63946",
+        },
+    },
+    menuItemIcon: {
+        marginRight: "0.75rem",
+        width: "20px",
+        height: "20px",
+    },
+    accordionItem: {
+        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+    },
+    accordionHeader: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0.75rem 1.5rem",
+        color: "#f1faee",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        borderLeft: "4px solid transparent",
+        "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
+        "&.active": {
+            backgroundColor: "rgba(230, 57, 70, 0.3)",
+        },
+    },
+    accordionTitle: {
+        display: "flex",
+        alignItems: "center",
+    },
+    accordionIcon: {
+        marginRight: "0.75rem",
+        width: "20px",
+        height: "20px",
+    },
+    accordionArrow: {
+        transition: "transform 0.3s ease",
+    },
+    arrowRotated: {
+        transform: "rotate(180deg)",
+    },
+    accordionContentWrapper: {
+        display: "grid",
+        gridTemplateRows: "0fr",
+        transition: "grid-template-rows 0.3s ease",
+    },
+    accordionContentWrapperOpen: {
+        gridTemplateRows: "1fr",
+    },
+    accordionInner: {
+        overflow: "hidden",
+    },
+    submenuItem: {
+        display: "flex",
+        alignItems: "center",
+        padding: "0.5rem 1.5rem 0.5rem 3.5rem", 
+        color: "#f1faee",
+        textDecoration: "none",
+        transition: "all 0.3s ease",
+        fontSize: "0.9rem",
+        cursor: "pointer",
+        borderLeft: "3px solid transparent",
+        "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.05)" },
+        "&.active": {
+            backgroundColor: "rgba(230, 57, 70, 0.2)",
+            borderLeft: "3px solid #e63946",
+        },
+    },
     footer: {
         padding: "1.5rem",
         borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-        marginTop: "auto",
     },
     logoutBtn: {
         background: "transparent",
@@ -61,8 +153,14 @@ export const useSidebarStyles = makeStyles({
         padding: "0.75rem",
         fontSize: "1rem",
         borderRadius: "4px",
-        "&:hover": {
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-        },
+        "&:hover": { backgroundColor: "rgba(255, 255, 255, 0.1)" },
     },
+    logoutIcon: {
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: "0.75rem",
+        width: "20px",
+        height: "20px", 
+    }
 });
