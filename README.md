@@ -1,32 +1,38 @@
 # APP-FLUENT-UI
 
-Una aplicación React moderna construida con Vite, TypeScript y componentes Fluent UI. Este proyecto proporciona una base para aplicaciones web con características de autenticación, funcionalidad de dashboard y una interfaz de usuario responsiva.
+Aplicación React construida con Vite, TypeScript y Fluent UI. Este proyecto incluye autenticación con PocketBase, un dashboard protegido y una pantalla de carga inicial.
+
+## Descripción
+
+APP-FLUENT-UI ofrece una base para aplicaciones web con:
+- Login con validación y redirección al dashboard
+- Dashboard protegido por sesión
+- Sidebar responsive, header y botón flotante en el dashboard
+- Pantalla de bienvenida al iniciar la aplicación
+- Enrutamiento perezoso con React Router v7
+- Integración con PocketBase para autenticación y datos
 
 ## Características
 
-- **Sistema de Autenticación**: Página de inicio de sesión con validación de formulario y marca
-- **Pantalla de Bienvenida**: Pantalla de carga animada durante la inicialización de la aplicación
-- **Dashboard Interactivo**: Panel de control con sidebar, header y botones flotantes
-- **Diseño Responsivo**: Construido con Fluent UI para una experiencia consistente en múltiples plataformas
-- **Enrutamiento**: Enrutamiento del lado del cliente con React Router v7
-- **Backend Integrado**: Uso de PocketBase para gestión de datos y autenticación
-- **TypeScript**: Seguridad de tipos completa en toda la aplicación
-- **ESLint**: Configurado para calidad de código y consistencia
-- **Vite**: Servidor de desarrollo rápido y builds optimizados
+- **Autenticación de usuarios**: Login con PocketBase y validación de formulario
+- **Dashboard protegido**: Rutas protegidas usando `ProtectedRoute`
+- **Fluent UI**: Uso de componentes y estilos de Fluent UI
+- **Splash screen**: Carga inicial administrada por contexto
+- **Estado global de autenticación**: Hook `useAuth` para datos de sesión
+- **Rutas perezosas**: Carga diferida de Login y Dashboard
+- **TypeScript**: Tipado en todo el código
+- **Vite**: Desarrollo rápido y builds optimizados
 
-## Tecnologías Utilizadas
+## Tecnologías principales
 
-### Dependencias Principales
-- **React 19**: Librería UI para construir interfaces de usuario
-- **React Router 7**: Enrutamiento declarativo para React
-- **Fluent UI React Components**: Componentes del sistema de diseño de Microsoft
-- **PocketBase**: Backend as a Service para autenticación y base de datos
-- **TypeScript**: JavaScript tipado para mejor experiencia de desarrollo
-
-### Herramientas de Desarrollo
-- **Vite**: Herramienta de build y servidor de desarrollo
-- **ESLint**: Linting y formateo de código
-- **Compilador TypeScript**: Verificación de tipos y compilación
+- `react`
+- `react-dom`
+- `react-router`
+- `@fluentui/react-components`
+- `pocketbase`
+- `typescript`
+- `vite`
+- `eslint`
 
 ## Instalación
 
@@ -36,115 +42,125 @@ Una aplicación React moderna construida con Vite, TypeScript y componentes Flue
    cd app-fluent-ui
    ```
 
-2. Instala las dependencias:
+2. Instala dependencias:
    ```bash
    npm install
    ```
 
-3. Configura PocketBase (si es necesario):
-   - Asegúrate de tener PocketBase corriendo localmente o en un servidor.
-   - Actualiza la configuración en `src/shared/api/pocketbase.ts` si es necesario.
+3. Inicia PocketBase si vas a usar la autenticación integrada:
+   ```bash
+   pocketbase serve
+   ```
+
+4. Ajusta la URL de PocketBase en `src/shared/api/pocketbase.ts` si es necesario.
 
 ## Uso
 
 ### Desarrollo
-Inicia el servidor de desarrollo con recarga en caliente:
 ```bash
 npm run dev
 ```
 
 ### Build
-Construye la aplicación para producción:
 ```bash
 npm run build
 ```
 
-### Vista Previa
-Vista previa del build de producción localmente:
+### Vista previa
 ```bash
 npm run preview
 ```
 
-### Linting
-Ejecuta ESLint para verificar la calidad del código:
+### Lint
 ```bash
 npm run lint
 ```
 
-## Estructura del Proyecto
+## Estructura del proyecto
 
 ```
 src/
 ├── app/
-│   ├── AppRouter.tsx          # Componente principal del router con pantalla de bienvenida
-│   ├── Router.tsx             # Definiciones de rutas
-│   └── SplashContext.tsx      # Contexto para el estado de la pantalla de bienvenida
+│   ├── AppRouter.tsx
+│   ├── Router.tsx
+│   └── SplashContext.tsx
 ├── components/
 │   └── Layouts/
-│       ├── AuthLayout.tsx     # Layout para páginas de autenticación
-│       └── DashboardLayout.tsx # Layout para el dashboard
+│       ├── AuthLayout.tsx
+│       └── DashboardLayout.tsx
 ├── features/
 │   ├── auth/
 │   │   ├── components/
-│   │   │   ├── LoginBranding.tsx  # Componente de marca para login
-│   │   │   └── LoginForm.tsx      # Componente de formulario de login
+│   │   │   ├── LoginBranding.tsx
+│   │   │   └── LoginForm.tsx
 │   │   ├── hooks/
-│   │   │   └── useLogin.ts        # Hook para lógica de login
+│   │   │   └── useLogin.ts
 │   │   ├── pages/
-│   │   │   └── Login.tsx          # Página de login
+│   │   │   └── Login.tsx
 │   │   └── styles/
-│   │       └── Login.styles.ts    # Estilos para componentes de auth
+│   │       └── Login.styles.ts
 │   └── dashboard/
 │       ├── components/
 │       │   ├── FabButton/
 │       │   │   ├── FabButton.styles.ts
-│       │   │   └── FabButton.tsx    # Botón flotante
+│       │   │   └── FabButton.tsx
 │       │   ├── Header/
 │       │   │   ├── DashboardHeader.styles.ts
-│       │   │   └── DashboardHeader.tsx  # Header del dashboard
+│       │   │   └── DashboardHeader.tsx
 │       │   └── Sidebar/
 │       │       ├── DashboardSidebar.styles.ts
-│       │       └── DashboardSidebar.tsx  # Sidebar del dashboard
+│       │       └── DashboardSidebar.tsx
+│       ├── constants/
+│       │   └── menuConfig.tsx
 │       ├── contexts/
-│       │   └── SidebarContext.tsx   # Contexto para el estado del sidebar
+│       │   └── SidebarContext.tsx
 │       └── pages/
-│           └── Dashboard.tsx        # Página principal del dashboard
+│           └── Dashboard.tsx
 ├── shared/
 │   ├── api/
-│   │   └── pocketbase.ts           # Configuración de PocketBase
+│   │   └── pocketbase.ts
 │   ├── components/
 │   │   ├── ProtectedRoute/
-│   │   │   └── ProtectedRoute.tsx  # Ruta protegida
+│   │   │   └── ProtectedRoute.tsx
 │   │   └── SplashScreen/
 │   │       ├── Splash.styles.ts
-│   │       └── SplashScreen.tsx    # Componente de pantalla de bienvenida
+│   │       └── SplashScreen.tsx
 │   ├── hooks/
-│   │   └── useAuth.ts              # Hook para autenticación
-│   └── styles/                     # Estilos compartidos (si los hay)
-├── assets/                         # Activos estáticos
-├── App.tsx                         # Componente raíz de la aplicación
-└── main.tsx                        # Punto de entrada de la aplicación
+│   │   └── useAuth.ts
+│   └── styles/
+├── assets/
+├── App.tsx
+└── main.tsx
 ```
+
+## Rutas principales
+
+- `/` — Página de login
+- `/dashboard` — Dashboard protegido
 
 ## Arquitectura
 
-La aplicación sigue una arquitectura basada en características:
+- **app/**: Router principal y manejo de splash screen
+- **components/Layouts/**: Layouts para auth y dashboard
+- **features/**: Dominios funcionales (`auth`, `dashboard`)
+- **shared/**: Hooks, API y componentes reutilizables
+- **assets/**: Contenidos estáticos
 
-- **Características**: Organizadas por dominio (auth, dashboard)
-- **Compartido**: Componentes y utilidades comunes
-- **Componentes**: Componentes UI reutilizables
-- **Estilos**: Estilos específicos de componentes usando CSS-in-JS
+## Requisitos
+
+- Node.js 18+ recomendado
+- npm 10+ o equivalente
+- PocketBase instalado localmente o remoto para el backend de autenticación
 
 ## Contribución
 
-1. Haz un fork del repositorio
-2. Crea una rama de característica: `git checkout -b feature/tu-caracteristica`
-3. Haz tus cambios y ejecuta pruebas
+1. Haz fork del repositorio
+2. Crea una rama nueva: `git checkout -b feature/tu-caracteristica`
+3. Realiza tus cambios y prueba la aplicación
 4. Confirma tus cambios: `git commit -am 'Agrega alguna característica'`
-5. Sube a la rama: `git push origin feature/tu-caracteristica`
-6. Envía una pull request
+5. Sube la rama: `git push origin feature/tu-caracteristica`
+6. Abre una pull request
 
 ## Licencia
 
 Este proyecto es privado y no está licenciado para uso público.
-```
