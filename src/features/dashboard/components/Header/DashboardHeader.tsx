@@ -1,6 +1,6 @@
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useSidebarContext } from "@/features/dashboard/contexts/SidebarContext";
-import { useHeaderStyles } from "./ DashboardHeader.styles";
+import { useHeaderStyles } from "./DashboardHeader.styles";
 
 export const DashboardHeader = () => {
     const styles = useHeaderStyles();

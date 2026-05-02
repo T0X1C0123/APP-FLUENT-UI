@@ -26,7 +26,7 @@ const RouterContent = () => {
     return (
         <>
             <SplashScreen />
-                <RouterProvider router={router} />
+            <RouterProvider router={router} />
             <RouteListener />
         </>
     );

@@ -8,12 +8,15 @@ export const useSidebarStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         transition: "left 0.3s ease, transform 0.3s ease",
-        position: "fixed",
+        position: "relative",
         height: "100%",
-        left: "0px", // Por defecto abierto en escritorio
-        zIndex: 10,
         "@media (max-width: 768px)": {
-            left: "-250px", // Oculto por defecto en móvil
+            position: "fixed",
+            top: 0,
+            left: "-250px",
+            height: "100vh",
+            zIndex: 10,
+            width: "250px",
         },
     },
     mobileActive: {
