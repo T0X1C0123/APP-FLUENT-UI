@@ -28,8 +28,15 @@ export const router = createBrowserRouter([
                     {
                         index: true,
                         lazy: async () => {
-                            const { default: Dashboard } = await import('@/features/dashboard/pages/Dashboard');
+                            const { default: Dashboard } = await import('@/features/dashboard/overview/pages/Dashboard');
                             return { Component: Dashboard };
+                        },
+                    },
+                    {
+                        path: 'datos-personales',
+                        lazy: async () => {
+                            const { default: DatosIngreso } = await import('@/features/dashboard/gestion-ingresos/pages/DatosPersonales');
+                            return { Component: DatosIngreso };
                         },
                     },
                 ],

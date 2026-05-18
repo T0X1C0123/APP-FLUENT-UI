@@ -32,7 +32,7 @@ const Dashboard = () => {
                     icon={<UsersIcon />} 
                     status="positive"
                 />
-                 <StatCard 
+                <StatCard 
                     title="Trabajadores Suplentes" 
                     value={0} 
                     subtitle="Personal suplente activo" 
