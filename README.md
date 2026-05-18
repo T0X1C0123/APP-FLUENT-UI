@@ -1,27 +1,28 @@
 # APP-FLUENT-UI
 
-Aplicación React construida con Vite, TypeScript y Fluent UI. Este proyecto incluye autenticación con PocketBase, un dashboard protegido y una pantalla de carga inicial.
+Aplicación React construida con Vite, TypeScript y Fluent UI. Esta aplicación ofrece un login con PocketBase, un dashboard protegido con estadísticas y gestión de datos personales.
 
 ## Descripción
 
-APP-FLUENT-UI ofrece una base para aplicaciones web con:
-- Login con validación y redirección al dashboard
-- Dashboard protegido por sesión
-- Sidebar responsive, header y botón flotante en el dashboard
-- Pantalla de bienvenida al iniciar la aplicación
+APP-FLUENT-UI es una base para aplicaciones web empresariales que incluye:
+- Autenticación de usuarios con PocketBase
+- Dashboard protegido con rutas seguras
+- Sidebar responsive y layout de dashboard
+- Pantalla de carga inicial (`SplashScreen`)
 - Enrutamiento perezoso con React Router v7
-- Integración con PocketBase para autenticación y datos
+- Gestión de datos personales en `dashboard/gestion-ingresos`
+- Componentes reutilizables y estilo con Fluent UI
 
 ## Características
 
-- **Autenticación de usuarios**: Login con PocketBase y validación de formulario
-- **Dashboard protegido**: Rutas protegidas usando `ProtectedRoute`
-- **Fluent UI**: Uso de componentes y estilos de Fluent UI
-- **Splash screen**: Carga inicial administrada por contexto
-- **Estado global de autenticación**: Hook `useAuth` para datos de sesión
-- **Rutas perezosas**: Carga diferida de Login y Dashboard
-- **TypeScript**: Tipado en todo el código
-- **Vite**: Desarrollo rápido y builds optimizados
+- **Login seguro** con validación de formulario
+- **ProtectedRoute** para proteger rutas internas
+- **Dashboard principal** con tarjetas de métricas, gráficos y actividad reciente
+- **Gestión de datos personales** con tabla y modal de datos
+- **Splash screen** para transiciones suaves
+- **Rutas perezosas** para mejorar el rendimiento
+- **Sidebar y layout** para la navegación dentro del dashboard
+- **TypeScript y ESLint** para calidad de código
 
 ## Tecnologías principales
 
@@ -114,8 +115,33 @@ src/
 │       │   └── menuConfig.tsx
 │       ├── contexts/
 │       │   └── SidebarContext.tsx
-│       └── pages/
-│           └── Dashboard.tsx
+│       ├── gestion-ingresos/
+│       │   ├── components/
+│       │   │   ├── Modal/
+│       │   │   │   ├── DatosPersonalesModal.styles.ts
+│       │   │   │   ├── DatosPersonalesModal.tsx
+│       │   │   │   └── ModalIcons.tsx
+│       │   │   ├── Table/
+│       │   │   │   ├── DatosPersonalesTable.styles.ts
+│       │   │   │   └── DatosPersonalesTable.tsx
+│       │   ├── pages/
+│       │   │   └── DatosPersonales.tsx
+│       │   └── styles/
+│       │       └── Ingresos.styles.ts
+│       └── overview/
+│           ├── components/
+│           │   ├── ChartContainer/
+│           │   │   ├── ChartContainer.styles.ts
+│           │   │   └── ChartContainer.tsx
+│           │   ├── RecentActivity/
+│           │   │   ├── RecentActivity.styles.ts
+│           │   │   └── RecentActivity.tsx
+│           │   └── StatCard/
+│           │       ├── StatCard.styles.ts
+│           │       ├── StatCard.tsx
+│           │       └── StatCardIcons.tsx
+│           └── pages/
+│               └── Dashboard.tsx
 ├── shared/
 │   ├── api/
 │   │   └── pocketbase.ts
@@ -137,14 +163,15 @@ src/
 
 - `/` — Página de login
 - `/dashboard` — Dashboard protegido
+- `/dashboard/datos-personales` — Gestión de datos personales
 
 ## Arquitectura
 
-- **app/**: Router principal y manejo de splash screen
+- **app/**: Enrutado principal y splash screen
 - **components/Layouts/**: Layouts para auth y dashboard
-- **features/**: Dominios funcionales (`auth`, `dashboard`)
+- **features/**: Módulos de auth y dashboard
 - **shared/**: Hooks, API y componentes reutilizables
-- **assets/**: Contenidos estáticos
+- **assets/**: Archivos estáticos
 
 ## Requisitos
 
